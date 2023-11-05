@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/book_img"
+            android:layout_width="70dp"
+            android:layout_height="90dp"
+            android:src="@drawable/comics_1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp" />
+        <TextView
+            android:id="@+id/book_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="Climate And Rice Cropping Systems In the Brahmaputra"
+            android:gravity="center"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:layout_gravity="center_horizontal"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp"/>
+        <TextView
+            android:id="@+id/book_author_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="Haruhis Asad"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_gravity="center_horizontal"
+            android:textSize="12sp"
+            android:textColor="#616161"/>
+        <TextView
+            android:id="@+id/book_price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="320 Tk."
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp"
+            />
+        <TextView
+            android:id="@+id/add_to_cart_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add To Cart"
+            android:textColor="#FD9700"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:padding="4dp"
+            android:background="@drawable/add_to_cart_btn"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="8dp" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

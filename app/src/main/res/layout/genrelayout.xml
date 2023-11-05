@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/genre_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/roboto"
+        android:text="Fan and Ventilator"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/genre_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/genre_name_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_keyboard_arrow"
+        />
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/genre_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/genre_name_tv"
+        app:layout_constraintEnd_toEndOf="@id/genre_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginVertical="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

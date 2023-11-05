@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.rokomaribookapp.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.example.rokomaribookapp.ui.library.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.rokomaribookapp.ui.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+    <activity
+        android:id="@+id/cartActivity"
+        android:name="com.example.rokomaribookapp.ui.cart.CartActivity"
+        android:label="CartActivity" />
+    <activity
+        android:id="@+id/elibraryActivity"
+        android:name="com.example.rokomaribookapp.ui.library.ElibraryActivity"
+        android:label="activity_elibrary"
+        tools:layout="@layout/activity_elibrary" />
+    <activity
+        android:id="@+id/authorActivity"
+        android:name="com.example.rokomaribookapp.ui.author.AuthorActivity"
+        android:label="activity_author"
+        tools:layout="@layout/activity_author" />
+    <activity
+        android:id="@+id/booksActivity"
+        android:name="com.example.rokomaribookapp.ui.books.BooksActivity"
+        android:label="activity_books"
+        tools:layout="@layout/activity_books" />
+    <activity
+        android:id="@+id/productsActivity"
+        android:name="com.example.rokomaribookapp.ui.products.ProductsActivity"
+        android:label="activity_products"
+        tools:layout="@layout/activity_products" />
+</navigation>

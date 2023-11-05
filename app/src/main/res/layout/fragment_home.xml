@@ -1,0 +1,2135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/top_bar_menu">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/rokomari_logo" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/top_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/books"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="#079AD5"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/booksstack"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleShape"
+                    app:contentPadding="8dp"/>
+
+                <TextView
+                    android:id="@+id/book_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Books"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/books"
+                    app:layout_constraintStart_toStartOf="@id/books"
+                    app:layout_constraintTop_toBottomOf="@id/books" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/electronics"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="#37BB20"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/plug"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/kids_zone"
+                    app:layout_constraintStart_toEndOf="@id/books"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleShape"
+                    app:contentPadding="8dp"/>
+
+                <TextView
+                    android:id="@+id/electronics_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Electronics"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/electronics"
+                    app:layout_constraintStart_toStartOf="@id/electronics"
+                    app:layout_constraintTop_toBottomOf="@id/electronics" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/kids_zone"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:background="#87298F"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/babyboy"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/monihari"
+                    app:layout_constraintStart_toEndOf="@id/electronics"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleShape"
+                    app:contentPadding="8dp"/>
+
+                <TextView
+                    android:id="@+id/kids_zone_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Kids zone"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/kids_zone"
+                    app:layout_constraintStart_toStartOf="@id/kids_zone"
+                    app:layout_constraintTop_toBottomOf="@id/kids_zone" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/monihari"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="#FDCC37"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/pencilholder"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleShape"
+                    app:contentPadding="8dp"/>
+
+                <TextView
+                    android:id="@+id/monihari_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Monihari"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/monihari"
+                    app:layout_constraintStart_toStartOf="@id/monihari"
+                    app:layout_constraintTop_toBottomOf="@id/monihari" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ad_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintEnd_toEndOf="@id/top_category"
+                app:layout_constraintStart_toStartOf="@id/top_category"
+                app:layout_constraintTop_toBottomOf="@id/top_category" />
+
+            <Button
+                android:id="@+id/ad_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rectangle_btn_shape"
+                android:backgroundTint="@color/app_color"
+                android:text="College(HSC) books"
+                app:layout_constraintEnd_toEndOf="@id/ad_rv"
+                app:layout_constraintStart_toStartOf="@id/ad_rv"
+                app:layout_constraintTop_toBottomOf="@id/ad_rv" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mid_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@id/ad_btn"
+                app:layout_constraintStart_toStartOf="@id/ad_btn"
+                app:layout_constraintTop_toBottomOf="@id/ad_btn">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/authors"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="#009589"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ink"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleShape"
+                    app:contentPadding="5dp"/>
+
+                <TextView
+                    android:id="@+id/authors_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Authors"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/authors"
+                    app:layout_constraintStart_toStartOf="@id/authors"
+                    app:layout_constraintTop_toBottomOf="@id/authors" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/category"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="#AA48BC"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/category"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/ebooks"
+                    app:layout_constraintStart_toEndOf="@id/authors"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleShape"
+                    app:contentPadding="8dp"/>
+
+                <TextView
+                    android:id="@+id/category_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Category"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/category"
+                    app:layout_constraintStart_toStartOf="@id/category"
+                    app:layout_constraintTop_toBottomOf="@id/category" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ebooks"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:background="#2196F5"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ebook"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@id/in_stock"
+                    app:layout_constraintStart_toEndOf="@id/category"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleShape"
+                    app:contentPadding="8dp"/>
+
+                <TextView
+                    android:id="@+id/ebooks_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Ebooks"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/ebooks"
+                    app:layout_constraintStart_toStartOf="@id/ebooks"
+                    app:layout_constraintTop_toBottomOf="@id/ebooks" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/in_stock"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="#4BB050"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/pencilholder"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/CircleShape"
+                    app:contentPadding="8dp"/>
+
+                <TextView
+                    android:id="@+id/in_stock_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="In-stock"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/in_stock"
+                    app:layout_constraintStart_toStartOf="@id/in_stock"
+                    app:layout_constraintTop_toBottomOf="@id/in_stock" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/reel_of_deal_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:background="#F8F7FC"
+                app:layout_constraintEnd_toEndOf="@id/mid_category"
+                app:layout_constraintStart_toStartOf="@id/mid_category"
+                app:layout_constraintTop_toBottomOf="@id/mid_category">
+
+                <TextView
+                    android:id="@+id/reel_of_deal_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Reel of Deal"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/reel_of_deal_tv">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="8dp">
+
+                        <ImageView
+                            android:id="@+id/img"
+                            android:layout_width="70dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/recently_sold_one"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/name_tv"
+                            android:layout_width="85dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:padding="4dp"
+                            android:text="The monk who sold his ferrari"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/img"
+                            app:layout_constraintStart_toStartOf="@id/img"
+                            app:layout_constraintTop_toBottomOf="@+id/img" />
+
+                        <TextView
+                            android:id="@+id/brand_tv"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Robin Sharma"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@id/name_tv"
+                            app:layout_constraintStart_toStartOf="@id/name_tv"
+                            app:layout_constraintTop_toBottomOf="@id/name_tv" />
+
+                        <TextView
+                            android:id="@+id/price_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Tk. 220"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/brand_tv"
+                            app:layout_constraintStart_toStartOf="@id/brand_tv"
+                            app:layout_constraintTop_toBottomOf="@id/brand_tv" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toEndOf="@id/first"
+                    app:layout_constraintTop_toBottomOf="@id/reel_of_deal_tv">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="8dp">
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="70dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/recently_sold_one"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/name_tv2"
+                            android:layout_width="85dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:padding="4dp"
+                            android:text="The monk who sold his ferrari"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/img2"
+                            app:layout_constraintStart_toStartOf="@id/img2"
+                            app:layout_constraintTop_toBottomOf="@+id/img2" />
+
+                        <TextView
+                            android:id="@+id/brand_tv2"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Robin Sharma"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@id/name_tv2"
+                            app:layout_constraintStart_toStartOf="@id/name_tv2"
+                            app:layout_constraintTop_toBottomOf="@id/name_tv2" />
+
+                        <TextView
+                            android:id="@+id/price_tv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Tk. 220"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/brand_tv2"
+                            app:layout_constraintStart_toStartOf="@id/brand_tv2"
+                            app:layout_constraintTop_toBottomOf="@id/brand_tv2" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/third"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintEnd_toStartOf="@id/second"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@id/first"
+                    app:layout_constraintTop_toBottomOf="@id/reel_of_deal_tv">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="8dp">
+
+                        <ImageView
+                            android:id="@+id/img3"
+                            android:layout_width="70dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/recently_sold_one"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/name_tv3"
+                            android:layout_width="85dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:padding="4dp"
+                            android:text="The monk who sold his ferrari"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/img3"
+                            app:layout_constraintStart_toStartOf="@id/img3"
+                            app:layout_constraintTop_toBottomOf="@+id/img3" />
+
+                        <TextView
+                            android:id="@+id/brand_tv3"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Robin Sharma"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@id/name_tv3"
+                            app:layout_constraintStart_toStartOf="@id/name_tv3"
+                            app:layout_constraintTop_toBottomOf="@id/name_tv3" />
+
+                        <TextView
+                            android:id="@+id/price_tv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Tk. 220"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/brand_tv3"
+                            app:layout_constraintStart_toStartOf="@id/brand_tv3"
+                            app:layout_constraintTop_toBottomOf="@id/brand_tv3" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fourth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="@id/first"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/first"
+                    app:layout_constraintTop_toBottomOf="@id/first">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="8dp">
+
+                        <ImageView
+                            android:id="@+id/img4"
+                            android:layout_width="70dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/recently_sold_one"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/name_tv4"
+                            android:layout_width="85dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:padding="4dp"
+                            android:text="The monk who sold his ferrari"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/img4"
+                            app:layout_constraintStart_toStartOf="@id/img4"
+                            app:layout_constraintTop_toBottomOf="@+id/img4" />
+
+                        <TextView
+                            android:id="@+id/brand_tv4"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Robin Sharma"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@id/name_tv4"
+                            app:layout_constraintStart_toStartOf="@id/name_tv4"
+                            app:layout_constraintTop_toBottomOf="@id/name_tv4" />
+
+                        <TextView
+                            android:id="@+id/price_tv4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Tk. 220"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/brand_tv4"
+                            app:layout_constraintStart_toStartOf="@id/brand_tv4"
+                            app:layout_constraintTop_toBottomOf="@id/brand_tv4" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fifth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="@id/third"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/third"
+                    app:layout_constraintTop_toBottomOf="@id/third">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="8dp">
+
+                        <ImageView
+                            android:id="@+id/img5"
+                            android:layout_width="70dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/recently_sold_one"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/name_tv5"
+                            android:layout_width="85dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:padding="4dp"
+                            android:text="The monk who sold his ferrari"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/img5"
+                            app:layout_constraintStart_toStartOf="@id/img5"
+                            app:layout_constraintTop_toBottomOf="@+id/img5" />
+
+                        <TextView
+                            android:id="@+id/brand_tv5"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Robin Sharma"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@id/name_tv5"
+                            app:layout_constraintStart_toStartOf="@id/name_tv5"
+                            app:layout_constraintTop_toBottomOf="@id/name_tv5" />
+
+                        <TextView
+                            android:id="@+id/price_tv5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Tk. 220"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/brand_tv5"
+                            app:layout_constraintStart_toStartOf="@id/brand_tv5"
+                            app:layout_constraintTop_toBottomOf="@id/brand_tv5" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/sixth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintEnd_toEndOf="@id/second"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/second"
+                    app:layout_constraintTop_toBottomOf="@id/second">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:layout_marginVertical="8dp">
+
+                        <ImageView
+                            android:id="@+id/img6"
+                            android:layout_width="70dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/recently_sold_one"
+                            app:layout_constraintDimensionRatio="1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/name_tv6"
+                            android:layout_width="85dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:padding="4dp"
+                            android:text="The monk who sold his ferrari"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/img6"
+                            app:layout_constraintStart_toStartOf="@id/img6"
+                            app:layout_constraintTop_toBottomOf="@+id/img6" />
+
+                        <TextView
+                            android:id="@+id/brand_tv6"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Robin Sharma"
+                            android:textSize="12sp"
+                            app:layout_constraintEnd_toEndOf="@id/name_tv6"
+                            app:layout_constraintStart_toStartOf="@id/name_tv6"
+                            app:layout_constraintTop_toBottomOf="@id/name_tv6" />
+
+                        <TextView
+                            android:id="@+id/price_tv6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Tk. 220"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="@id/brand_tv6"
+                            app:layout_constraintStart_toStartOf="@id/brand_tv6"
+                            app:layout_constraintTop_toBottomOf="@id/brand_tv6" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16dp"
+                    android:background="@drawable/button_with_border"
+                    android:fontFamily="sans-serif"
+                    android:padding="8dp"
+                    android:text="View all"
+                    android:textColor="@color/app_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fifth" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/super_store_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintEnd_toEndOf="@id/reel_of_deal_layout"
+                app:layout_constraintStart_toStartOf="@id/reel_of_deal_layout"
+                app:layout_constraintTop_toBottomOf="@id/reel_of_deal_layout">
+
+                <TextView
+                    android:id="@+id/first_category_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Superstore"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/inner_category_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="350dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/first_category_tv">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/first_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/mosquito_killer"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp" />
+
+                    <TextView
+                        android:id="@+id/category_tv_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Anti Mosquito"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/first_category"
+                        app:layout_constraintStart_toStartOf="@id/first_category"
+                        app:layout_constraintTop_toBottomOf="@id/first_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/third_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginEnd="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/diapar"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/first_category"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Umbrella"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/second_category"
+                        app:layout_constraintStart_toStartOf="@id/second_category"
+                        app:layout_constraintTop_toBottomOf="@id/second_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/second_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginEnd="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/umbrella_icon"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@id/third_category"
+                        app:layout_constraintStart_toEndOf="@id/first_category"
+                        app:layout_constraintTop_toTopOf="@id/first_category"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="4dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Diaper"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/third_category"
+                        app:layout_constraintStart_toStartOf="@id/third_category"
+                        app:layout_constraintTop_toBottomOf="@id/third_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/fourth_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/mixer_grinder"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="@id/category_tv_1"
+                        app:layout_constraintStart_toStartOf="@id/category_tv_1"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_1"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Mixers and Grinders"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/fourth_category"
+                        app:layout_constraintStart_toStartOf="@id/fourth_category"
+                        app:layout_constraintTop_toBottomOf="@id/fourth_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/sixth_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/iron"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="@id/category_tv_3"
+                        app:layout_constraintStart_toStartOf="@id/category_tv_3"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_3"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Irons"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/sixth_category"
+                        app:layout_constraintStart_toStartOf="@id/sixth_category"
+                        app:layout_constraintTop_toBottomOf="@id/sixth_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/fifth_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/refrigerator"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@id/sixth_category"
+                        app:layout_constraintStart_toEndOf="@id/fourth_category"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_2"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Refrigerator"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/fifth_category"
+                        app:layout_constraintStart_toStartOf="@id/fifth_category"
+                        app:layout_constraintTop_toBottomOf="@id/fifth_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/seventh_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/rice_cooker"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="@id/category_tv_4"
+                        app:layout_constraintStart_toStartOf="@id/category_tv_4"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_4"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Rice Cookers"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/seventh_category"
+                        app:layout_constraintStart_toStartOf="@id/seventh_category"
+                        app:layout_constraintTop_toBottomOf="@id/seventh_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/eighth_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ac_icon"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="@id/fifth_category"
+                        app:layout_constraintStart_toStartOf="@id/fifth_category"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_5"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Cooling and Heating"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/eighth_category"
+                        app:layout_constraintStart_toStartOf="@id/eighth_category"
+                        app:layout_constraintTop_toBottomOf="@id/eighth_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/ninth_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/kettle_icon"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="@id/category_tv_6"
+                        app:layout_constraintStart_toStartOf="@id/category_tv_6"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_6"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Kettle"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/ninth_category"
+                        app:layout_constraintStart_toStartOf="@id/ninth_category"
+                        app:layout_constraintTop_toBottomOf="@id/ninth_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/tenth_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/toys"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="@id/category_tv_7"
+                        app:layout_constraintStart_toStartOf="@id/category_tv_7"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_7"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Toys"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/tenth_category"
+                        app:layout_constraintStart_toStartOf="@id/tenth_category"
+                        app:layout_constraintTop_toBottomOf="@id/tenth_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/eleventh_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/calculator"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="@id/eighth_category"
+                        app:layout_constraintStart_toStartOf="@id/eighth_category"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_8"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Calculator"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/eleventh_category"
+                        app:layout_constraintStart_toStartOf="@id/eleventh_category"
+                        app:layout_constraintTop_toBottomOf="@id/eleventh_category" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/twelveth_category"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="8dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/smart_watch"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="@id/category_tv_9"
+                        app:layout_constraintStart_toStartOf="@id/category_tv_9"
+                        app:layout_constraintTop_toBottomOf="@id/category_tv_9"
+                        app:shapeAppearanceOverlay="@style/CircleShape"
+                        app:strokeWidth="1dp"
+                        app:contentPadding="8dp"/>
+
+                    <TextView
+                        android:id="@+id/category_tv_12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Smart Watch"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="@id/twelveth_category"
+                        app:layout_constraintStart_toStartOf="@id/twelveth_category"
+                        app:layout_constraintTop_toBottomOf="@id/twelveth_category" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/show_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Show All Category"
+                    android:textColor="@color/app_color"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/inner_category_layout" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/popular_items_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/super_store_layout"
+                app:layout_constraintStart_toStartOf="@id/super_store_layout"
+                app:layout_constraintTop_toBottomOf="@id/super_store_layout">
+
+                <TextView
+                    android:id="@+id/popular_item_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Popular items"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/popular_item_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/popular_item_tv" />
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontal_scroll_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/popular_item_divider">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/first_col_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/shaving_grooming_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="Shaving and Grooming"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/shaving_grooming_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="16dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/shaving_grooming_tv"
+                                app:layout_constraintTop_toBottomOf="@id/shaving_grooming_tv">
+
+                                <ImageView
+                                    android:id="@+id/kemei_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/htc_trimmer" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/product_name_tv"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="HTC AT-538 Rechargeable Hair and Beard Trimmer For Men"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/shaving_grooming_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/shaving_grooming_card"
+                                app:layout_constraintTop_toTopOf="@id/shaving_grooming_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/brand_name_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="HTC"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/product_name_tv"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/product_name_tv"
+                                app:layout_constraintTop_toBottomOf="@id/product_name_tv" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/first_divider"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/product_name_tv"
+                                app:layout_constraintStart_toStartOf="@id/shaving_grooming_card"
+
+                                app:layout_constraintTop_toBottomOf="@id/shaving_grooming_card" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/hair_dryer_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="8dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/first_divider"
+                                app:layout_constraintTop_toBottomOf="@id/first_divider">
+
+                                <ImageView
+                                    android:id="@+id/phillip_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/phillip_trimmer" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/product_name_tv_2"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="Philips HP8108 Hair Dryer"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/hair_dryer_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/hair_dryer_card"
+                                app:layout_constraintTop_toTopOf="@id/hair_dryer_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/brand_name_tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Phillip"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/product_name_tv_2"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/product_name_tv_2"
+                                app:layout_constraintTop_toBottomOf="@id/product_name_tv_2" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/second_divider"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/product_name_tv_2"
+                                app:layout_constraintStart_toStartOf="@id/hair_dryer_card"
+
+                                app:layout_constraintTop_toBottomOf="@id/hair_dryer_card" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/kemei_trimmer_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="8dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/second_divider"
+                                app:layout_constraintTop_toBottomOf="@id/second_divider">
+
+                                <ImageView
+                                    android:id="@+id/kemei_trimmer_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/kemei_trimmer" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/product_name_tv_3"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="Kemei Km 6330 3 In 1 Hair Clipper Grooming Kit Trimmer"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/kemei_trimmer_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/kemei_trimmer_card"
+                                app:layout_constraintTop_toTopOf="@id/kemei_trimmer_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/brand_name_tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Kemei"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/product_name_tv_3"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/product_name_tv_3"
+                                app:layout_constraintTop_toBottomOf="@id/product_name_tv_3" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/third_divider"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/product_name_tv_3"
+                                app:layout_constraintStart_toStartOf="@id/kemei_trimmer_card"
+                                app:layout_constraintTop_toBottomOf="@id/kemei_trimmer_card" />
+
+                            <TextView
+                                android:id="@+id/see_more_tv_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginBottom="16dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="See More"
+                                android:textColor="#169EEA"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="@id/third_divider"
+                                app:layout_constraintTop_toBottomOf="@id/third_divider"
+                                app:layout_constraintVertical_bias="0" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/second_col_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/first_col_layout"
+                            app:layout_constraintTop_toTopOf="@id/first_col_layout"
+                            app:layout_constraintEnd_toStartOf="@id/third_col_layout"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:id="@+id/west_bengal_books_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="West Bengal Book"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/west_bengal_books_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="16dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/west_bengal_books_tv"
+                                app:layout_constraintTop_toBottomOf="@id/west_bengal_books_tv">
+
+                                <ImageView
+                                    android:id="@+id/fairy_tale_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/fairy_tale" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/book_name_tv"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="HTC AT-538 Rechargeable Hair and Beard Trimmer For Men"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/west_bengal_books_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/west_bengal_books_card"
+                                app:layout_constraintTop_toTopOf="@id/west_bengal_books_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/author_name_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="HTC"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/book_name_tv"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/book_name_tv"
+                                app:layout_constraintTop_toBottomOf="@id/book_name_tv" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/first_divider_2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/book_name_tv"
+                                app:layout_constraintStart_toStartOf="@id/west_bengal_books_card"
+
+                                app:layout_constraintTop_toBottomOf="@id/west_bengal_books_card" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/ekattor_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="8dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/first_divider_2"
+                                app:layout_constraintTop_toBottomOf="@id/first_divider_2">
+
+                                <ImageView
+                                    android:id="@+id/ekattor_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ekattor_book" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/book_name_tv_2"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="Philips HP8108 Hair Dryer"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/ekattor_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/ekattor_card"
+                                app:layout_constraintTop_toTopOf="@id/ekattor_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/author_name_tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Phillip"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/book_name_tv_2"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/book_name_tv_2"
+                                app:layout_constraintTop_toBottomOf="@id/book_name_tv_2" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/second_divider_2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/book_name_tv_2"
+                                app:layout_constraintStart_toStartOf="@id/ekattor_card"
+
+                                app:layout_constraintTop_toBottomOf="@id/ekattor_card" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/last_book_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="8dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/second_divider_2"
+                                app:layout_constraintTop_toBottomOf="@id/second_divider_2">
+
+                                <ImageView
+                                    android:id="@+id/last_book_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/fairy_tale" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/book_name_tv_3"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="Kemei Km 6330 3 In 1 Hair Clipper Grooming Kit Trimmer"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/last_book_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/last_book_card"
+                                app:layout_constraintTop_toTopOf="@id/last_book_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/author_name_tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Kemei"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/book_name_tv_3"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/book_name_tv_3"
+                                app:layout_constraintTop_toBottomOf="@id/book_name_tv_3" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/third_divider_2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/book_name_tv_3"
+                                app:layout_constraintStart_toStartOf="@id/last_book_card"
+                                app:layout_constraintTop_toBottomOf="@id/last_book_card" />
+
+                            <TextView
+                                android:id="@+id/see_more_tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginBottom="16dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="See More"
+                                android:textColor="#169EEA"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="@id/third_divider_2"
+                                app:layout_constraintTop_toBottomOf="@id/third_divider_2"
+                                app:layout_constraintVertical_bias="0" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/third_col_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/second_col_layout"
+                            app:layout_constraintTop_toTopOf="@id/second_col_layout">
+
+                            <TextView
+                                android:id="@+id/stationary_product_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="16dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="Stationary Product"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/stationary_product_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="16dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/stationary_product_tv"
+                                app:layout_constraintTop_toBottomOf="@id/stationary_product_tv">
+
+                                <ImageView
+                                    android:id="@+id/stationary_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/calculator" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/stationary_name_tv"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="HTC AT-538 Rechargeable Hair and Beard Trimmer For Men"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/stationary_product_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/stationary_product_card"
+                                app:layout_constraintTop_toTopOf="@id/stationary_product_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/stationary_brand_name_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="HTC"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/stationary_name_tv"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/stationary_name_tv"
+                                app:layout_constraintTop_toBottomOf="@id/stationary_name_tv" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/first_divider_3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/stationary_name_tv"
+                                app:layout_constraintStart_toStartOf="@id/stationary_product_card"
+                                app:layout_constraintTop_toBottomOf="@id/stationary_product_card" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/smart_watch_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="8dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/first_divider_3"
+                                app:layout_constraintTop_toBottomOf="@id/first_divider_3">
+
+                                <ImageView
+                                    android:id="@+id/watch_img"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/smart_watch" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/stationary_name_tv_2"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="Philips HP8108 Hair Dryer"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/smart_watch_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/smart_watch_card"
+                                app:layout_constraintTop_toTopOf="@id/smart_watch_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/stationary_brand_name_tv_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Phillip"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/stationary_name_tv_2"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/stationary_name_tv_2"
+                                app:layout_constraintTop_toBottomOf="@id/stationary_name_tv_2" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/second_divider_3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/stationary_name_tv_2"
+                                app:layout_constraintStart_toStartOf="@id/smart_watch_card"
+
+                                app:layout_constraintTop_toBottomOf="@id/smart_watch_card" />
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/last_product_card"
+                                android:layout_width="75dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="8dp"
+                                android:elevation="12dp"
+                                app:layout_constraintStart_toStartOf="@id/second_divider_3"
+                                app:layout_constraintTop_toBottomOf="@id/second_divider_3">
+
+                                <ImageView
+                                    android:id="@+id/last_product_image"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/calculator" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/stationary_name_tv_3"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginEnd="16dp"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:text="Kemei Km 6330 3 In 1 Hair Clipper Grooming Kit Trimmer"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="@id/last_product_card"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/last_product_card"
+                                app:layout_constraintTop_toTopOf="@id/last_product_card"
+                                app:layout_constraintVertical_bias=".4" />
+
+                            <TextView
+                                android:id="@+id/stationary_brand_name_tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Kemei"
+                                android:textSize="8sp"
+                                app:layout_constraintEnd_toEndOf="@id/stationary_name_tv_3"
+                                app:layout_constraintHorizontal_bias="0"
+                                app:layout_constraintStart_toStartOf="@id/stationary_name_tv_3"
+                                app:layout_constraintTop_toBottomOf="@id/stationary_name_tv_3" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:id="@+id/third_divider_3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintEnd_toEndOf="@id/stationary_name_tv_3"
+                                app:layout_constraintStart_toStartOf="@id/last_product_card"
+                                app:layout_constraintTop_toBottomOf="@id/last_product_card" />
+
+                            <TextView
+                                android:id="@+id/see_more_tv_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginBottom="16dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:text="See More"
+                                android:textColor="#169EEA"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="@id/third_divider_3"
+                                app:layout_constraintTop_toBottomOf="@id/third_divider_3"
+                                app:layout_constraintVertical_bias="0" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </HorizontalScrollView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/genre_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/popular_items_layout"
+                app:layout_constraintEnd_toEndOf="@id/popular_items_layout"
+                app:layout_constraintStart_toStartOf="@id/popular_items_layout"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:id="@+id/explore_by_genre_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore by Genres"
+                    android:fontFamily="@font/roboto_medium"
+                    android:layout_marginTop="8dp"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/genre_title_divider"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/explore_by_genre_tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    android:layout_marginTop="4dp"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/genres_rv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/genre_title_divider"
+                    app:layout_constraintStart_toStartOf="@id/genre_title_divider"
+                    app:layout_constraintEnd_toEndOf="@id/genre_title_divider"
+                    android:layout_marginTop="4dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/shop_by_age_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/genre_layout"
+                app:layout_constraintStart_toStartOf="@id/genre_layout"
+                app:layout_constraintEnd_toEndOf="@id/genre_layout"
+                android:layout_marginTop="8dp">
+                <TextView
+                    android:id="@+id/shop_by_age_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shop By Age"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/zero_to_four_card"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    android:elevation="8dp"
+                    app:cardCornerRadius="8dp"
+                    android:backgroundTint="#FDCF17"
+                    app:layout_constraintTop_toBottomOf="@id/shop_by_age_tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp">
+                    <TextView
+                        android:id="@+id/age_title_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0-4"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:id="@+id/years_title_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Years"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/roboto_medium"/>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/four_to_eight_card"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    android:elevation="8dp"
+                    app:cardCornerRadius="8dp"
+                    android:backgroundTint="#FD916D"
+                    app:layout_constraintTop_toTopOf="@id/zero_to_four_card"
+                    app:layout_constraintStart_toStartOf="@id/zero_to_four_card"
+                    app:layout_constraintEnd_toEndOf="@id/eight_to_twelve_card"
+                    >
+                    <TextView
+                        android:id="@+id/age_title_tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4-8"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:id="@+id/years_title_tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Years"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/roboto_medium"/>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/eight_to_twelve_card"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    android:elevation="8dp"
+                    app:cardCornerRadius="8dp"
+                    android:backgroundTint="#18D3FC"
+                    app:layout_constraintTop_toTopOf="@id/four_to_eight_card"
+                    app:layout_constraintEnd_toEndOf="parent">
+                    <TextView
+                        android:id="@+id/age_title_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8-12"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"/>
+                    <TextView
+                        android:id="@+id/years_title_tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Years"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/roboto_medium"/>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/best_seller_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/shop_by_age_layout"
+                app:layout_constraintStart_toStartOf="@id/shop_by_age_layout"
+                app:layout_constraintEnd_toEndOf="@id/shop_by_age_layout"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/best_seller_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Best seller Genre"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/self_dev_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/self_dev_tv"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="Self Development"
+                        android:maxLines="2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:id="@+id/self_dev_see_more_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="See More"
+                        app:layout_constraintTop_toTopOf="@id/self_dev_tv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/self_dev_tv"
+                        android:textColor="@color/app_color"
+                        android:fontFamily="@font/roboto_medium"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/self_dev_rv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/self_dev_tv"
+                        android:layout_marginTop="4dp"/>
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/self_dev_divider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/self_dev_rv"
+                        app:layout_constraintStart_toStartOf="@id/self_dev_rv"
+                        app:layout_constraintEnd_toEndOf="@id/self_dev_rv"
+                        android:layout_marginTop="8dp"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/islamic_book_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/islamic_book_tv"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="Islamic"
+                        android:maxLines="2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:id="@+id/islamic_book_see_more_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="See More"
+                        app:layout_constraintTop_toTopOf="@id/islamic_book_tv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/islamic_book_tv"
+                        android:textColor="@color/app_color"
+                        android:fontFamily="@font/roboto_medium"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/islamic_book_rv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/islamic_book_tv"
+                        android:layout_marginTop="4dp"/>
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/islamic_book_divider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/islamic_book_rv"
+                        app:layout_constraintStart_toStartOf="@id/islamic_book_rv"
+                        app:layout_constraintEnd_toEndOf="@id/islamic_book_rv"
+                        android:layout_marginTop="8dp"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/comic_book_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/comic_book_tv"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:text="Comics"
+                        android:maxLines="2"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="8dp"/>
+                    <TextView
+                        android:id="@+id/comic_book_see_more_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="See More"
+                        app:layout_constraintTop_toTopOf="@id/comic_book_tv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/comic_book_tv"
+                        android:textColor="@color/app_color"
+                        android:fontFamily="@font/roboto_medium"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/comic_book_rv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/comic_book_tv"
+                        android:layout_marginTop="4dp"/>
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/comic_book_divider"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/comic_book_rv"
+                        app:layout_constraintStart_toStartOf="@id/comic_book_rv"
+                        app:layout_constraintEnd_toEndOf="@id/comic_book_rv"
+                        android:layout_marginTop="8dp"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/app_color"
+        android:contentDescription="Chat"
+        android:src="@drawable/ic_chat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
