@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rokomaribookapp.R
 import com.example.rokomaribookapp.adapters.ParentAdapter
 import com.example.rokomaribookapp.databinding.FragmentProductListBinding
+import com.example.rokomaribookapp.models.Products
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,9 +23,14 @@ class ProductListFragment() : Fragment(R.layout.fragment_product_list) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initObserver()
-        adapter = ParentAdapter { id ->
-            adapterOnClick(id)
-        }
+        adapter = ParentAdapter(
+            { id ->
+                adapterOnClick(id)
+            },
+            { product ->
+                adapterOnProductClick(product)
+            }
+        )
     }
 
     private fun initObserver() {
@@ -65,6 +71,14 @@ class ProductListFragment() : Fragment(R.layout.fragment_product_list) {
         val action =
             ProductListFragmentDirections.actionProductListFragment2ToProductDetailsFragment(
                 id
+            )
+        findNavController().navigate(action)
+    }
+
+    private fun adapterOnProductClick(product: Products) {
+        val action =
+            ProductListFragmentDirections.actionProductListFragment2ToSingleProductDetailsFragment(
+                product.id
             )
         findNavController().navigate(action)
     }

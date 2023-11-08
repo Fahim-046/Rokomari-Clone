@@ -46,6 +46,9 @@ class ChildAdapter(
                 }
             }
             binding.productPriceTv.text = item.price.toString() + "Tk."
+            binding.root.setOnClickListener {
+                onClick(item)
+            }
         }
 
         companion object {

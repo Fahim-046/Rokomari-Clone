@@ -16,6 +16,9 @@
         <argument
             android:name="productId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_productListFragment2_to_singleProductDetailsFragment"
+            app:destination="@id/singleProductDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
@@ -24,6 +27,18 @@
         tools:layout="@layout/fragment_product_details" >
         <argument
             android:name="categoryId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_productDetailsFragment_self"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleProductDetailsFragment"
+        android:name="com.example.rokomaribookapp.ui.products.singleProduct.SingleProductDetailsFragment"
+        android:label="fragment_single_product_details"
+        tools:layout="@layout/fragment_single_product_details" >
+        <argument
+            android:name="id"
             app:argType="long" />
     </fragment>
 </navigation>
