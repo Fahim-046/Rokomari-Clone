@@ -29,8 +29,8 @@
             android:name="categoryId"
             app:argType="long" />
         <action
-            android:id="@+id/action_productDetailsFragment_self"
-            app:destination="@id/productDetailsFragment" />
+            android:id="@+id/action_productDetailsFragment_to_singleProductDetailsFragment"
+            app:destination="@id/singleProductDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/singleProductDetailsFragment"

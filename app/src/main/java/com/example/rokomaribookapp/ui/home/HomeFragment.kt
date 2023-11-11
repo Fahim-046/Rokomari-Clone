@@ -8,21 +8,19 @@ import android.view.ViewGroup.LayoutParams
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rokomaribookapp.R
-import com.example.rokomaribookapp.adapters.AdAdapter
 import com.example.rokomaribookapp.adapters.BooksAdapterDemo
 import com.example.rokomaribookapp.adapters.GenreAdapter
 import com.example.rokomaribookapp.databinding.FragmentHomeBinding
-import com.example.rokomaribookapp.models.AdModel
 import com.example.rokomaribookapp.models.Books
 import com.example.rokomaribookapp.models.GenreModel
 import com.example.rokomaribookapp.ui.author.AuthorActivity
 import com.example.rokomaribookapp.ui.books.BooksActivity
 import com.example.rokomaribookapp.ui.products.ProductsActivity
 import com.example.rokomaribookapp.utils.extentions.dpToPx
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var list: MutableList<AdModel>
     private lateinit var genreList: MutableList<GenreModel>
     private lateinit var bookList: MutableList<Books>
     private lateinit var islamicBookList: MutableList<Books>
@@ -31,11 +29,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        list = mutableListOf(
-            AdModel(R.drawable.ad1),
-            AdModel(R.drawable.ad2),
-            AdModel(R.drawable.ad3)
-        )
         genreList = mutableListOf(
             GenreModel(0, "Fan and Ventilator"),
             GenreModel(1, "Kids books"),
@@ -91,10 +84,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initViews() {
-        binding.adRv.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.adRv.setHasFixedSize(true)
-        binding.adRv.adapter = AdAdapter(list)
+        binding.adCarousel.registerLifecycle(viewLifecycleOwner)
+        val list = mutableListOf<CarouselItem>(
+            CarouselItem(R.drawable.ad1),
+            CarouselItem(R.drawable.ad2),
+            CarouselItem(R.drawable.ad3)
+        )
+        binding.adCarousel.setData(list)
 
         binding.genresRv.layoutManager = LinearLayoutManager(requireContext())
         binding.genresRv.setHasFixedSize(true)

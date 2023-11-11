@@ -59,5 +59,10 @@ class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
     }
 
     private fun adapterOnClick(product: Products) {
+        val action =
+            ProductDetailsFragmentDirections.actionProductDetailsFragmentToSingleProductDetailsFragment(
+                product.categoryId
+            )
+        findNavController().navigate(action)
     }
 }

@@ -67,6 +67,14 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
+    // Material Components for Android. Replace the version with the latest version of Material Components library.
+    implementation("com.google.android.material:material:1.5.0")
+
+    // Circle Indicator (To fix the xml preview "Missing classes" error)
+    implementation("me.relex:circleindicator:2.1.6")
+
+    implementation("org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0")
+
     implementation("me.relex:circleindicator:2.1.6")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
