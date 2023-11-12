@@ -1,7 +1,6 @@
 package com.example.rokomaribookapp.ui.products
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -20,9 +19,8 @@ class ProductsActivity : AppCompatActivity() {
         val ans = intent.getStringExtra("categoryId")
         val bundle = Bundle()
         if (ans != null) {
-            bundle.putLong("productId", ans?.toLong()!!)
+            bundle.putLong("productId", ans.toLong())
         }
-        Log.d("wow", ans.toString())
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentproductcontainer) as NavHostFragment
         val navController = navHostFragment.navController

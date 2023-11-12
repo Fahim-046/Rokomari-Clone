@@ -33,6 +33,7 @@ class ParentAdapter(
 
         fun bind(item: ProductsWithCategory) {
             val adapter = ChildAdapter { products ->
+                onDetailsClick(products)
             }
             binding.titleTv.text = item.category.name
             binding.childListRv.layoutManager = GridLayoutManager(binding.root.context, 2)

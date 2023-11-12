@@ -20,4 +20,7 @@ interface ProductDao {
 
     @Query("SELECT * FROM product_categories WHERE id=:id")
     fun subCategoryProductList(id: Long): ProductsWithCategory
+
+    @Query("SELECT * FROM products WHERE id=:id")
+    fun getProduct(id: Long): Products
 }

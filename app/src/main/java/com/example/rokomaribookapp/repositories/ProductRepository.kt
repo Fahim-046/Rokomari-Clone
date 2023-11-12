@@ -21,4 +21,8 @@ class ProductRepository @Inject constructor(
     suspend fun getItem(id: Long): ProductsWithCategory = withContext(Dispatchers.IO) {
         db.productDao().subCategoryProductList(id)
     }
+
+    suspend fun getProduct(id: Long): Products = withContext(Dispatchers.IO) {
+        db.productDao().getProduct(id)
+    }
 }

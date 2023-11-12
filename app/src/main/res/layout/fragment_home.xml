@@ -185,6 +185,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="@id/ad_btn"
                 app:layout_constraintStart_toStartOf="@id/ad_btn"
                 app:layout_constraintTop_toBottomOf="@id/ad_btn">
