@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299544617227",
+    "project_id": "rokomari-book-app",
+    "storage_bucket": "rokomari-book-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299544617227:android:27d4445faf7b1033e9020e",
+        "android_client_info": {
+          "package_name": "com.example.rokomaribookapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo8s7CDaJ6odjecKpOYtMVOhjdAh81zDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
