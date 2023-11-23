@@ -4,17 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import com.example.rokomaribookapp.ui.account.AccountFragment
+import com.example.rokomaribookapp.ui.account.AccountActivity
+import com.example.rokomaribookapp.ui.account.profile.AccountFragment
 import com.example.rokomaribookapp.ui.cart.CartActivity
 import com.example.rokomaribookapp.ui.library.ElibraryActivity
 import com.example.rokomaribookapp.ui.menu.MenuFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    var flag = false
     private lateinit var navView: BottomNavigationView
     private lateinit var cartSheet: BottomSheetDialogFragment
     private lateinit var menuSheet: BottomSheetDialogFragment
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
         navView = findViewById(R.id.bottom_navigation)
+        val auth = FirebaseAuth.getInstance()
         // navView.setupWithNavController(navController)
         // findNavController(R.id.fragmentContainerView).navigate(R.id.homeFragment)
         navView.setOnNavigationItemSelectedListener {
@@ -37,11 +39,17 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.accountFragment -> {
-                    cartSheet = AccountFragment {
-                        navView.selectedItemId = R.id.homeFragment
+                    val user = auth.currentUser
+                    if (user != null) {
+                        cartSheet = AccountFragment {
+                            navView.selectedItemId = R.id.homeFragment
+                        }
+                        cartSheet.isCancelable = false
+                        cartSheet.show(supportFragmentManager, "account sheet")
+                    } else {
+                        val intent = Intent(this@MainActivity, AccountActivity::class.java)
+                        startActivity(intent)
                     }
-                    cartSheet.isCancelable = false
-                    cartSheet.show(supportFragmentManager, "account sheet")
                 }
 
                 R.id.libraryFragment -> {

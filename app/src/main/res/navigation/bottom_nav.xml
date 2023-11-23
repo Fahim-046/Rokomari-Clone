@@ -44,4 +44,9 @@
         android:name="com.example.rokomaribookapp.ui.products.ProductsActivity"
         android:label="activity_products"
         tools:layout="@layout/activity_products" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.rokomaribookapp.authentication.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" />
 </navigation>

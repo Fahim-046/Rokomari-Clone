@@ -1,4 +1,4 @@
-package com.example.rokomaribookapp.ui.account
+package com.example.rokomaribookapp.ui.account.profile
 
 import android.os.Bundle
 import android.util.Log
