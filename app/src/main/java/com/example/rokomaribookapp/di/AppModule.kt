@@ -2,6 +2,8 @@ package com.example.rokomaribookapp.di
 
 import android.content.Context
 import com.example.rokomaribookapp.db.AppDatabase
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,4 +19,6 @@ class AppModule {
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
         return AppDatabase(context)
     }
+    @Provides
+    fun provideFirebaseAuth() = Firebase.auth
 }

@@ -40,7 +40,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-        binding.signInBtn.setOnClickListener {
+        binding.googleSignInBtn.setOnClickListener {
             signIn()
         }
     }

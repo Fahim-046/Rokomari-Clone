@@ -39,9 +39,7 @@
                 android:layout_width="0dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="4dp"
-                android:background="#cedebd"
                 android:padding="2dp"
-                android:src="@drawable/account_img_no_bg"
                 app:contentPadding="2dp"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="@id/account_tv"
@@ -363,7 +361,7 @@
                         android:id="@+id/my_book_shelf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="My Bookshelg"
+                        android:text="My Bookshelf"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -531,6 +529,7 @@
                         android:layout_marginBottom="4dp"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sign_out_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView

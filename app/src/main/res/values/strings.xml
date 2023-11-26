@@ -2,4 +2,5 @@
     <string name="app_name">Rokomari Book app</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="web_client_id">299544617227-hq32k4h1pou6022kqra4ndhpc1rqh21q.apps.googleusercontent.com</string>
 </resources>

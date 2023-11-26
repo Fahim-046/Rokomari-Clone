@@ -74,9 +74,8 @@ dependencies {
     // Circle Indicator (To fix the xml preview "Missing classes" error)
     implementation("me.relex:circleindicator:2.1.6")
 
+    // Carousel
     implementation("org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0")
-
-    implementation("me.relex:circleindicator:2.1.6")
 
     // Add the dependency for the Firebase Authentication library
     // When NOT using the BoM, you must specify versions in Firebase library dependencies
@@ -84,6 +83,11 @@ dependencies {
 
     // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+    // Coil
+    implementation("io.coil-kt:coil:2.5.0")
+
+    //Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
