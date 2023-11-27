@@ -1,20 +1,15 @@
 package com.example.rokomaribookapp.ui.account.auth
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.rokomaribookapp.R
 import com.example.rokomaribookapp.databinding.FragmentSignInBinding
-import com.google.android.gms.auth.api.identity.Identity
+import com.example.rokomaribookapp.models.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -24,13 +19,14 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     private lateinit var binding: FragmentSignInBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private val viewModel:SignInViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSignInBinding.bind(view)
@@ -74,6 +70,14 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         val credential = GoogleAuthProvider.getCredential(account.idToken,null)
         auth.signInWithCredential(credential).addOnCompleteListener {
             if(it.isSuccessful){
+                viewModel.insertUser(
+                    User(
+                        auth.currentUser?.uid!!,
+                        auth.currentUser?.displayName!!,
+                        auth.currentUser?.phoneNumber,
+                        auth.currentUser?.photoUrl.toString()
+                    )
+                )
                 Toast.makeText(requireContext(), "Successfully signed in", Toast.LENGTH_SHORT).show()
                 requireActivity().finish()
             }

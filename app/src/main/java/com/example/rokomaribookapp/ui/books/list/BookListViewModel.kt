@@ -8,6 +8,7 @@ import com.example.rokomaribookapp.models.Book
 import com.example.rokomaribookapp.models.Cart
 import com.example.rokomaribookapp.repositories.BookRepository
 import com.example.rokomaribookapp.repositories.CartRepository
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch
@@ -15,7 +16,8 @@ import kotlinx.coroutines.launch
 @HiltViewModel
 class BookListViewModel @Inject constructor(
     private val bookRepository: BookRepository,
-    private val cartRepository: CartRepository
+    private val cartRepository: CartRepository,
+    private val auth: FirebaseAuth
 ) : ViewModel() {
     private val _books: MutableLiveData<List<Book>> by lazy {
         MutableLiveData<List<Book>>()
@@ -47,7 +49,15 @@ class BookListViewModel @Inject constructor(
             _showMessage.value = "Already added to cart"
             return@launch
         } else {
-            cartRepository.insert(Cart(0, book.id, book.bookName, book.price))
+            cartRepository.insert(
+                Cart(
+                    0,
+                    book.id,
+                    book.bookName,
+                    book.price,
+                    userId = auth.currentUser?.uid
+                )
+            )
             _showMessage.value = "Added to cart successfully"
         }
     }

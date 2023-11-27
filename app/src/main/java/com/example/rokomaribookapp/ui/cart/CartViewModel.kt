@@ -6,13 +6,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rokomaribookapp.models.Cart
 import com.example.rokomaribookapp.repositories.CartRepository
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.launch
 
 @HiltViewModel
 class CartViewModel @Inject constructor(
-    private val cartRepository: CartRepository
+    private val cartRepository: CartRepository,
+    private val auth: FirebaseAuth
 ) : ViewModel() {
     private val _items: MutableLiveData<List<Cart>> by lazy {
         MutableLiveData<List<Cart>>()
@@ -37,7 +39,7 @@ class CartViewModel @Inject constructor(
 
     fun getAll() = viewModelScope.launch {
         try {
-            val response = cartRepository.getAll()
+            val response = cartRepository.getAll(auth.currentUser?.uid)
             var sum = 0L
             var count = 0L
             for (index in response) {

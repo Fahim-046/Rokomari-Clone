@@ -23,9 +23,13 @@ class ProductDetailsFragment : Fragment(R.layout.fragment_product_details) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initObserver()
-        adapter = ChildAdapter { product ->
-            adapterOnClick(product)
-        }
+        adapter = ChildAdapter(
+            { product ->
+                adapterOnClick(product)
+            },
+            {
+            }
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

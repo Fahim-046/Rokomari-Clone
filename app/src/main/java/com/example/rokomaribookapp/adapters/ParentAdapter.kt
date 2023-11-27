@@ -12,11 +12,12 @@ import com.example.rokomaribookapp.models.ProductsWithCategory
 
 class ParentAdapter(
     private val onCLick: (Long) -> Unit,
-    private val onDetailsClick: (Products) -> Unit
+    private val onDetailsClick: (Products) -> Unit,
+    private val addToCart: (Products) -> Unit
 ) : ListAdapter<ProductsWithCategory, ParentAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent, onCLick, onDetailsClick)
+        return ViewHolder.from(parent, onCLick, onDetailsClick, addToCart)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -27,14 +28,20 @@ class ParentAdapter(
     class ViewHolder(
         private val binding: ProductParentItemLayoutBinding,
         private val onClick: (Long) -> Unit,
-        private val onDetailsClick: (Products) -> Unit
+        private val onDetailsClick: (Products) -> Unit,
+        private val addToCart: (Products) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         private val viewPool = RecyclerView.RecycledViewPool()
 
         fun bind(item: ProductsWithCategory) {
-            val adapter = ChildAdapter { products ->
-                onDetailsClick(products)
-            }
+            val adapter = ChildAdapter(
+                { products ->
+                    onDetailsClick(products)
+                },
+                {products->
+                    addToCart(products)
+                }
+            )
             binding.titleTv.text = item.category.name
             binding.childListRv.layoutManager = GridLayoutManager(binding.root.context, 2)
             binding.childListRv.adapter = adapter
@@ -48,11 +55,12 @@ class ParentAdapter(
             fun from(
                 parent: ViewGroup,
                 onCLick: (Long) -> Unit,
-                onDetailsClick: (Products) -> Unit
+                onDetailsClick: (Products) -> Unit,
+                addToCart: (Products) -> Unit
             ): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ProductParentItemLayoutBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding, onCLick, onDetailsClick)
+                return ViewHolder(binding, onCLick, onDetailsClick, addToCart)
             }
         }
     }

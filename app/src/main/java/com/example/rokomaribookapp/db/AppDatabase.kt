@@ -10,6 +10,7 @@ import com.example.rokomaribookapp.models.Cart
 import com.example.rokomaribookapp.models.Categories
 import com.example.rokomaribookapp.models.ProductCategory
 import com.example.rokomaribookapp.models.Products
+import com.example.rokomaribookapp.models.User
 
 @Database(
     entities = [
@@ -18,7 +19,8 @@ import com.example.rokomaribookapp.models.Products
         Categories::class,
         Cart::class,
         Products::class,
-        ProductCategory::class
+        ProductCategory::class,
+        User::class
     ],
     version = 2
 )
@@ -30,6 +32,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun cartDao(): CartDao
     abstract fun productDao(): ProductDao
     abstract fun productCategoryDao(): ProductCategoryDao
+    abstract fun userDao(): UserDao
 
     companion object {
         operator fun invoke(context: Context) = buildDatabase(context)

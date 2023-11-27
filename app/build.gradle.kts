@@ -86,6 +86,9 @@ dependencies {
     // Coil
     implementation("io.coil-kt:coil:2.5.0")
 
+    //Coil Gifs
+    implementation("io.coil-kt:coil-gif:2.5.0")
+
     //Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.0")
 

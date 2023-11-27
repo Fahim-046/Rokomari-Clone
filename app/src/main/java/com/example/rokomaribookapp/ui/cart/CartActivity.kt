@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rokomaribookapp.adapters.CartAdapter
 import com.example.rokomaribookapp.databinding.ActivityCartBinding
 import com.example.rokomaribookapp.models.Cart
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

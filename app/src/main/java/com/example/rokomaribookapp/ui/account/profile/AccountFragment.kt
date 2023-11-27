@@ -1,10 +1,13 @@
 package com.example.rokomaribookapp.ui.account.profile
 
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import coil.ImageLoader
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.example.rokomaribookapp.R
@@ -68,8 +71,19 @@ class AccountFragment(
             } else {
                 binding.userNumberTv.text = user.phoneNumber
             }
-            Log.d("img",user.photoUrl.toString())
-            binding.accountImg.load(user.photoUrl) {
+            val imageLoader = ImageLoader.Builder(requireContext())
+                .components {
+                    if (SDK_INT >= 28) {
+                        add(ImageDecoderDecoder.Factory())
+                    } else {
+                        add(GifDecoder.Factory())
+                    }
+                }
+                .build()
+            binding.accountImg.load(
+                user.photoUrl,
+                imageLoader = imageLoader
+            ) {
                 crossfade(true)
                 transformations(CircleCropTransformation())
             }

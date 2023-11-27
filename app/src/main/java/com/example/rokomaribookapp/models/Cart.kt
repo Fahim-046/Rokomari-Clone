@@ -6,10 +6,11 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "cart")
 data class Cart(
     @PrimaryKey(autoGenerate = true)
-    val id:Long = 0,
-    val itemId:Long,
+    val id: Long = 0,
+    val itemId: Long,
     val itemName: String,
     var itemPrice: Int,
     var itemAmount: Int = 1,
-    var isSelected: Boolean = true
+    var isSelected: Boolean = true,
+    var userId: String? = null
 )

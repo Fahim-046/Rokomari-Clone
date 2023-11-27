@@ -13,8 +13,8 @@ class CartRepository @Inject constructor(
         db.cartDao().insert(cart)
     }
 
-    suspend fun getAll(): List<Cart> = withContext(Dispatchers.IO) {
-        db.cartDao().getAllItem()
+    suspend fun getAll(id: String?): List<Cart> = withContext(Dispatchers.IO) {
+        db.cartDao().getAllItem(id)
     }
 
     suspend fun count(id: Long): Long = withContext(Dispatchers.IO) {
@@ -33,11 +33,11 @@ class CartRepository @Inject constructor(
         db.cartDao().getTotalPrice()
     }
 
-    suspend fun getItemCount(): Long = withContext(Dispatchers.IO){
+    suspend fun getItemCount(): Long = withContext(Dispatchers.IO) {
         db.cartDao().getItemCount()
     }
 
-    suspend fun deleteItem(cart: Cart) = withContext(Dispatchers.IO){
+    suspend fun deleteItem(cart: Cart) = withContext(Dispatchers.IO) {
         db.cartDao().deleteItem(cart)
     }
 }

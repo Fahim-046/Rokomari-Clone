@@ -2,6 +2,7 @@ package com.example.rokomaribookapp.ui.products.list
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -29,6 +30,9 @@ class ProductListFragment() : Fragment(R.layout.fragment_product_list) {
             },
             { product ->
                 adapterOnProductClick(product)
+            },
+            { product ->
+                viewModel.addToCart(product)
             }
         )
     }
@@ -36,6 +40,12 @@ class ProductListFragment() : Fragment(R.layout.fragment_product_list) {
     private fun initObserver() {
         viewModel.products.observe(this) { list ->
             adapter.submitList(list)
+        }
+        viewModel.added.observe(this) {
+            if (it) {
+                Toast.makeText(requireContext(), "Added to cart successfully", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 

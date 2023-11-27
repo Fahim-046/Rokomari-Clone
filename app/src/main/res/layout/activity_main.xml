@@ -32,7 +32,7 @@
         app:itemIconTint="@color/app_color"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
-        app:itemTextColor="@color/app_color"/>
+        app:itemTextColor="@color/app_color" />
 
 
 

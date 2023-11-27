@@ -13,8 +13,8 @@ interface CartDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(cart: Cart)
 
-    @Query("SELECT * FROM cart")
-    fun getAllItem(): List<Cart>
+    @Query("SELECT * FROM cart WHERE userId=:id")
+    fun getAllItem(id: String?): List<Cart>
 
     @Query("SELECT COUNT(*) FROM cart WHERE itemId=:id")
     fun count(id: Long): Long

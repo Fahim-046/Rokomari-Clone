@@ -10,10 +10,11 @@ import com.example.rokomaribookapp.databinding.ProductChildItemLayoutBinding
 import com.example.rokomaribookapp.models.Products
 
 class ChildAdapter(
-    private val onClick: (Products) -> Unit
+    private val onClick: (Products) -> Unit,
+    private val addToCart: (Products) -> Unit
 ) : ListAdapter<Products, ChildAdapter.ViewHolder>(DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent, onClick)
+        return ViewHolder.from(parent, onClick, addToCart)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -23,7 +24,8 @@ class ChildAdapter(
 
     class ViewHolder(
         private val binding: ProductChildItemLayoutBinding,
-        private val onClick: (Products) -> Unit
+        private val onClick: (Products) -> Unit,
+        private val addToCart: (Products) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Products) {
@@ -49,16 +51,20 @@ class ChildAdapter(
             binding.root.setOnClickListener {
                 onClick(item)
             }
+            binding.addToCartTv.setOnClickListener {
+                addToCart(item)
+            }
         }
 
         companion object {
             fun from(
                 parent: ViewGroup,
-                onClick: (Products) -> Unit
+                onClick: (Products) -> Unit,
+                addToCart: (Products) -> Unit
             ): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ProductChildItemLayoutBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding, onClick)
+                return ViewHolder(binding, onClick, addToCart)
             }
         }
     }
