@@ -32,7 +32,7 @@ class CartAdapter(
             var count = item.itemAmount
             binding.check.isChecked = item.isSelected
             binding.productName.text = item.itemName
-            binding.productPrice.text = "${item.itemPrice} Tk."
+            binding.productPrice.text = "৳ ${item.itemPrice}"
             binding.productAmount.text = item.itemAmount.toString()
             binding.check.setOnClickListener {
                 Log.d("adapter", "${binding.check.isChecked}")

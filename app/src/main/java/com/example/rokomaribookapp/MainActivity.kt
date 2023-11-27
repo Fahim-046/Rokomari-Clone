@@ -11,7 +11,8 @@ import com.example.rokomaribookapp.ui.library.ElibraryActivity
 import com.example.rokomaribookapp.ui.menu.MenuFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navView: BottomNavigationView
     private lateinit var cartSheet: BottomSheetDialogFragment
     private lateinit var menuSheet: BottomSheetDialogFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController = navHostFragment.navController
         navView = findViewById(R.id.bottom_navigation)
-        val auth = FirebaseAuth.getInstance()
         // navView.setupWithNavController(navController)
         // findNavController(R.id.fragmentContainerView).navigate(R.id.homeFragment)
         navView.setOnNavigationItemSelectedListener {
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.accountFragment -> {
-                    val user = auth.currentUser
+                    val user = Firebase.auth.currentUser
                     if (user != null) {
                         cartSheet = AccountFragment {
                             navView.selectedItemId = R.id.homeFragment
@@ -53,9 +54,15 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.libraryFragment -> {
+                    val user = Firebase.auth.currentUser
                     // findNavController(R.id.fragmentContainerView).navigate(R.id.libraryFragment)
-                    val intent = Intent(this@MainActivity, ElibraryActivity::class.java)
-                    startActivity(intent)
+                    if (user != null) {
+                        val intent = Intent(this@MainActivity, ElibraryActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        val intent = Intent(this@MainActivity, AccountActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
 
                 R.id.menuFragment -> {

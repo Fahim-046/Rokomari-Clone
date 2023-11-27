@@ -1,14 +1,15 @@
-package com.example.rokomaribookapp.ui.library
+package com.example.rokomaribookapp.ui.blank
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rokomaribookapp.databinding.ActivityElibraryBinding
+import android.os.Bundle
+import com.example.rokomaribookapp.R
+import com.example.rokomaribookapp.databinding.ActivityBlankBinding
 
-class ElibraryActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityElibraryBinding
+class BlankActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityBlankBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityElibraryBinding.inflate(layoutInflater)
+        binding = ActivityBlankBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initListeners()
     }

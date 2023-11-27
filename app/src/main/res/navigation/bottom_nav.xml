@@ -21,10 +21,6 @@
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
     <activity
-        android:id="@+id/cartActivity"
-        android:name="com.example.rokomaribookapp.ui.cart.CartActivity"
-        android:label="CartActivity" />
-    <activity
         android:id="@+id/elibraryActivity"
         android:name="com.example.rokomaribookapp.ui.library.ElibraryActivity"
         android:label="activity_elibrary"
@@ -49,4 +45,13 @@
         android:name="com.example.rokomaribookapp.authentication.SignInFragment"
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" />
+    <activity
+        android:id="@+id/blankActivity"
+        android:name="com.example.rokomaribookapp.ui.blank.BlankActivity"
+        android:label="activity_blank"
+        tools:layout="@layout/activity_blank" />
+    <activity
+        android:id="@+id/cartActivity"
+        android:name="com.example.rokomaribookapp.ui.cart.CartActivity"
+        android:label="CartActivity" />
 </navigation>

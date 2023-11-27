@@ -2,11 +2,13 @@ package com.example.rokomaribookapp.ui.account.auth
 
 import android.app.Activity.RESULT_OK
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.rokomaribookapp.R
 import com.example.rokomaribookapp.databinding.FragmentSignInBinding
 import com.example.rokomaribookapp.models.User
@@ -38,6 +40,13 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
         binding.googleSignInBtn.setOnClickListener {
             signIn()
+        }
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.backBtn.setOnClickListener {
+            requireActivity().finish()
         }
     }
 

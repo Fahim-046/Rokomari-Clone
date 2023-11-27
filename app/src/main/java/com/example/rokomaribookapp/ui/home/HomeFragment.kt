@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup.LayoutParams
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rokomaribookapp.R
 import com.example.rokomaribookapp.adapters.BooksAdapterDemo
@@ -14,6 +15,7 @@ import com.example.rokomaribookapp.databinding.FragmentHomeBinding
 import com.example.rokomaribookapp.models.Books
 import com.example.rokomaribookapp.models.GenreModel
 import com.example.rokomaribookapp.ui.author.AuthorActivity
+import com.example.rokomaribookapp.ui.blank.BlankActivity
 import com.example.rokomaribookapp.ui.books.BooksActivity
 import com.example.rokomaribookapp.ui.products.ProductsActivity
 import com.example.rokomaribookapp.utils.extentions.dpToPx
@@ -138,6 +140,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val intent = Intent(requireActivity(), AuthorActivity::class.java)
             startActivity(intent)
         }
+        binding.category.setOnClickListener {
+            val intent = Intent(requireActivity(), BooksActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.books.setOnClickListener {
             val intent = Intent(requireActivity(), BooksActivity::class.java)
@@ -147,6 +153,22 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val x = 1L
             val intent = Intent(requireActivity(), ProductsActivity::class.java)
             intent.putExtra("categoryId", x.toString())
+            startActivity(intent)
+        }
+        binding.kidsZone.setOnClickListener {
+            val intent = Intent(requireActivity(), BlankActivity::class.java)
+            startActivity(intent)
+        }
+        binding.monihari.setOnClickListener {
+            val intent = Intent(requireActivity(), BlankActivity::class.java)
+            startActivity(intent)
+        }
+        binding.ebooks.setOnClickListener {
+            val intent = Intent(requireActivity(), BlankActivity::class.java)
+            startActivity(intent)
+        }
+        binding.inStock.setOnClickListener {
+            val intent = Intent(requireActivity(), BlankActivity::class.java)
             startActivity(intent)
         }
     }

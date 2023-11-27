@@ -1,138 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/top_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView_order"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:title="My Cart" />
-
-    <ImageView
-        android:id="@+id/no_item_img"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/no_item"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_bar"
-        app:layout_constraintVertical_bias=".4"
-        app:layout_constraintWidth_percent=".4" />
-
-    <TextView
-        android:id="@+id/no_item_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="Your Cart is Empty"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/no_item_img"
-        app:layout_constraintStart_toStartOf="@id/no_item_img"
-        app:layout_constraintTop_toBottomOf="@id/no_item_img" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/total_amount_layout"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_bar">
-        <CheckBox
-            android:id="@+id/all_checked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:checked="true"/>
-
-        <TextView
-            android:id="@+id/total_item_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Select All(2/2 Items)"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/all_checked"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/total_amount_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Total: 1,116 Tk."
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cart_rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/confirmation_card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/total_amount_layout" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/confirmation_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:cardElevation="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_bar"
-        app:layout_constraintVertical_bias="1"
-        >
-
-        <TextView
-            android:id="@+id/gift_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="24dp"
-            android:fontFamily="@font/roboto"
-            android:padding="4dp"
-            android:text="Order as a Gift"
-            android:textColor="#046DFD"
-            android:textStyle="bold"/>
-
-        <Button
-            android:id="@+id/shipping_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginVertical="16dp"
-            android:backgroundTint="#046DFD"
-            android:text="Next to Shipping" />
-
-    </androidx.cardview.widget.CardView>
-
-
+        app:navGraph="@navigation/order_graph" />
 </androidx.constraintlayout.widget.ConstraintLayout>

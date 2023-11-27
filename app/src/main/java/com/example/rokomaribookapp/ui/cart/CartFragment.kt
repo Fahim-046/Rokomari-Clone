@@ -1,52 +1,112 @@
-//package com.example.rokomaribookapp.ui.cart
-//
-//import android.os.Bundle
-//import android.util.Log
-//import android.view.View
-//import androidx.fragment.app.Fragment
-//import androidx.recyclerview.widget.LinearLayoutManager
-//import com.example.rokomaribookapp.R
-//import com.example.rokomaribookapp.adapters.CardAdapter
-//import com.example.rokomaribookapp.databinding.FragmentCartBinding
-//import com.example.rokomaribookapp.models.Books
-//
-//class CartFragment : Fragment(R.layout.fragment_cart) {
-//    private lateinit var binding: FragmentCartBinding
-//    private lateinit var cartList: MutableList<Books>
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        cartList = mutableListOf(
-//            Books(1, "Comics book", R.drawable.comics_1, null, "200"),
-//            Books(2, "Comics book", R.drawable.comics2, null, "200"),
-//            Books(3, "Comics book", R.drawable.comics_1, null, "200"),
-//            Books(4, "Comics book", R.drawable.comics2, null, "200"),
-//            Books(5, "Comics book", R.drawable.comics_1, null, "200"),
-//            Books(6, "Comics book", R.drawable.comics2, null, "200")
-//        )
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        binding = FragmentCartBinding.bind(view)
-//        if (cartList.isEmpty()) {
-//            binding.cartRv.visibility = View.INVISIBLE
-//            binding.totalAmountLayout.visibility = View.INVISIBLE
-//            binding.confirmationCard.visibility = View.INVISIBLE
-//            binding.noItemImg.visibility = View.VISIBLE
-//            binding.noItemTv.visibility = View.VISIBLE
-//        } else {
-//            binding.cartRv.visibility = View.VISIBLE
-//            binding.totalAmountLayout.visibility = View.VISIBLE
-//            binding.noItemImg.visibility = View.GONE
-//            binding.noItemTv.visibility = View.GONE
-//        }
-//        initViews()
-//    }
-//
-//    private fun initViews() {
-//        binding.cartRv.layoutManager = LinearLayoutManager(requireContext())
-//        binding.cartRv.adapter = CardAdapter(cartList)
-//        Log.d("main", "I am in cart")
-//    }
-//}
+package com.example.rokomaribookapp.ui.cart
+
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import androidx.activity.viewModels
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.rokomaribookapp.R
+import com.example.rokomaribookapp.adapters.CartAdapter
+import com.example.rokomaribookapp.databinding.FragmentCartBinding
+import com.example.rokomaribookapp.models.Cart
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class CartFragment : Fragment(R.layout.fragment_cart) {
+    private lateinit var binding: FragmentCartBinding
+    private lateinit var adapter: CartAdapter
+    private val viewModel: CartViewModel by viewModels()
+    private var isChecked: Boolean = true
+    var price: Int = 0
+    var id: Long = 0
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initObserver()
+        adapter = CartAdapter(
+            { item, check ->
+                adapterOnChecked(item, check)
+            },
+            { item, amount ->
+                adapterOnAmountChange(item, amount)
+            }
+        )
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentCartBinding.bind(view)
+        initViews()
+        initListeners()
+        loadData()
+    }
+
+    private fun initObserver() {
+        viewModel.items.observe(this) {
+            if (it.isEmpty()) {
+                binding.noItemImg.visibility = View.VISIBLE
+                binding.noItemTv.visibility = View.VISIBLE
+            } else {
+                binding.noItemImg.visibility = View.GONE
+                binding.noItemTv.visibility = View.GONE
+            }
+            adapter.submitList(it)
+        }
+        viewModel.amount.observe(this) {
+            binding.totalAmountTv.text = "Total: ৳ $it"
+            price = it.toInt()
+        }
+        viewModel.items.observe(this) { list ->
+            viewModel.selectedItemCount.observe(this) { count ->
+                binding.allChecked.isChecked = count >= list.size
+                Log.d("count", "$count ${list.size}")
+                binding.totalItemTv.text = "Select All ($count/${list.size}) Items"
+            }
+        }
+    }
+
+    private fun initViews() {
+        binding.cartRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.cartRv.adapter = adapter
+    }
+
+    private fun initListeners() {
+        binding.allChecked.setOnClickListener {
+            if (binding.allChecked.isChecked) {
+                viewModel.unSelectAll(true)
+            } else {
+                viewModel.unSelectAll(false)
+            }
+        }
+        binding.topBar.setNavigationOnClickListener {
+            requireActivity().finish()
+        }
+        binding.shippingBtn.setOnClickListener {
+            val action =
+                CartFragmentDirections.actionCartFragment2ToOrderFragment(
+                    price
+                )
+            findNavController().navigate(action)
+        }
+    }
+
+    private fun loadData() {
+        viewModel.getAll()
+    }
+
+    private fun adapterOnChecked(cart: Cart, check: Boolean) {
+        viewModel.update(cart, check)
+    }
+
+    private fun adapterOnAmountChange(cart: Cart, amount: Int) {
+        if (amount > 0) {
+            viewModel.update(cart, cart.isSelected, amount)
+        } else {
+            viewModel.deleteItem(cart)
+        }
+    }
+}
