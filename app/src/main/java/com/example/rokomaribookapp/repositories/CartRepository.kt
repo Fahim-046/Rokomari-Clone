@@ -40,4 +40,12 @@ class CartRepository @Inject constructor(
     suspend fun deleteItem(cart: Cart) = withContext(Dispatchers.IO) {
         db.cartDao().deleteItem(cart)
     }
+
+    suspend fun insertAll(carts: List<Cart>) = withContext(Dispatchers.IO) {
+        db.cartDao().insertAll(carts)
+    }
+
+    suspend fun deleteAll(userId: String) = withContext(Dispatchers.IO) {
+        db.cartDao().deleteAll(userId)
+    }
 }

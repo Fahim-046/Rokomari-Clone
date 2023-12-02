@@ -11,32 +11,22 @@ import com.example.rokomaribookapp.repositories.OrderRepository
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class OrderViewModel @Inject constructor(
+class OrderPageViewModel @Inject constructor(
     private val orderRepo: OrderRepository,
-    private val cartRepository: CartRepository
 ) : ViewModel() {
 
-    private val _items: MutableLiveData<List<Cart>> by lazy {
-        MutableLiveData<List<Cart>>()
+    private val _items: MutableLiveData<List<Order>> by lazy {
+        MutableLiveData<List<Order>>()
     }
 
-    val items: LiveData<List<Cart>>
+    val items: LiveData<List<Order>>
         get() = _items
 
-    fun confirmOrder(order: Order) = viewModelScope.launch {
-        orderRepo.insertOrderWithCartItems(order)
-    }
-
-    fun getCartInfo() = viewModelScope.launch {
-        val response = cartRepository.getAll(Firebase.auth.currentUser?.uid)
-        _items.value = response
-    }
-
-    fun deleteFromCart(userId: String) = viewModelScope.launch {
-        cartRepository.deleteAll(userId)
+    fun getOrders(userId:String) = viewModelScope.launch {
+        _items.value = orderRepo.getOrders(userId)
     }
 }

@@ -2,18 +2,20 @@ package com.example.rokomaribookapp.db
 
 import androidx.room.Dao
 import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import androidx.room.Upsert
 import com.example.rokomaribookapp.models.Cart
 
 @Dao
 interface CartDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
     fun insert(cart: Cart)
 
-    @Query("SELECT * FROM cart WHERE userId=:id")
+    @Upsert
+    fun insertAll(cart: List<Cart>)
+
+    @Query("SELECT * FROM cart WHERE userId=:id and isSelected=1")
     fun getAllItem(id: String?): List<Cart>
 
     @Query("SELECT COUNT(*) FROM cart WHERE itemId=:id")
@@ -33,4 +35,7 @@ interface CartDao {
 
     @Delete
     fun deleteItem(cart: Cart)
+
+    @Query("DELETE FROM cart WHERE userId=:id")
+    fun deleteAll(id: String)
 }

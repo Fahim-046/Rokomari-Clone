@@ -86,11 +86,14 @@ dependencies {
     // Coil
     implementation("io.coil-kt:coil:2.5.0")
 
-    //Coil Gifs
+    // Coil Gifs
     implementation("io.coil-kt:coil-gif:2.5.0")
 
-    //Splash Screen
+    // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.0")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.10.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

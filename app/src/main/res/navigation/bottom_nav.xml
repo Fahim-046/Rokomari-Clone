@@ -54,4 +54,14 @@
         android:id="@+id/cartActivity"
         android:name="com.example.rokomaribookapp.ui.cart.CartActivity"
         android:label="CartActivity" />
+    <dialog
+        android:id="@+id/accountFragment3"
+        android:name="com.example.rokomaribookapp.ui.account.profile.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/orderPageFragment2"
+        android:name="com.example.rokomaribookapp.ui.cart.order.OrderPageFragment"
+        android:label="fragment_order_page"
+        tools:layout="@layout/fragment_order_page" />
 </navigation>
