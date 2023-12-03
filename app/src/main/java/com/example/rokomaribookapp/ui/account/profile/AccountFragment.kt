@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import coil.ImageLoader
 import coil.decode.GifDecoder
@@ -15,11 +14,11 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.example.rokomaribookapp.R
 import com.example.rokomaribookapp.databinding.FragmentAccountBinding
-import com.example.rokomaribookapp.ui.cart.order.OrderPageFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -55,20 +54,29 @@ class AccountFragment(
             dismiss()
         }
         binding.signOutLayout.setOnClickListener {
-            lifecycleScope.launch {
-                binding.progressBar.isIndeterminate = true
-                delay(2000)
-                binding.progressBar.isIndeterminate = false
-                val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestIdToken(getString(R.string.default_web_client_id))
-                    .requestEmail()
-                    .build()
-                googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-                auth.signOut()
-                googleSignInClient.signOut()
-                onSuccess()
-                dismiss()
-            }
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage("Do you want to sign out?")
+                .setNegativeButton("No") { dialog, which ->
+                    // Respond to negative button press
+                }
+                .setPositiveButton("Yes") { dialog, which ->
+                    // Respond to positive button press
+                    lifecycleScope.launch {
+                        binding.progressBar.isIndeterminate = true
+                        delay(2000)
+                        binding.progressBar.isIndeterminate = false
+                        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                            .requestIdToken(getString(R.string.default_web_client_id))
+                            .requestEmail()
+                            .build()
+                        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
+                        auth.signOut()
+                        googleSignInClient.signOut()
+                        onSuccess()
+                        dismiss()
+                    }
+                }
+                .show()
         }
         binding.order.setOnClickListener {
             findNavController().navigate(R.id.orderPageFragment2)

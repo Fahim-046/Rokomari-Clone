@@ -39,7 +39,7 @@ class CartViewModel @Inject constructor(
 
     fun getAll() = viewModelScope.launch {
         try {
-            val response = cartRepository.getAll(auth.currentUser?.uid)
+            val response = cartRepository.getAllItem(auth.currentUser?.uid)
             var sum = 0L
             var count = 0L
             for (index in response) {

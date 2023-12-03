@@ -15,8 +15,10 @@ interface CartDao {
     @Upsert
     fun insertAll(cart: List<Cart>)
 
-    @Query("SELECT * FROM cart WHERE userId=:id and isSelected=1")
+    @Query("SELECT * FROM cart WHERE userId=:id")
     fun getAllItem(id: String?): List<Cart>
+    @Query("SELECT * FROM cart WHERE userId=:id and isSelected=1")
+    fun getAll(id: String?): List<Cart>
 
     @Query("SELECT COUNT(*) FROM cart WHERE itemId=:id")
     fun count(id: Long): Long

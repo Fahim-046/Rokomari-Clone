@@ -14,6 +14,9 @@ class CartRepository @Inject constructor(
     }
 
     suspend fun getAll(id: String?): List<Cart> = withContext(Dispatchers.IO) {
+        db.cartDao().getAll(id)
+    }
+    suspend fun getAllItem(id: String?): List<Cart> = withContext(Dispatchers.IO) {
         db.cartDao().getAllItem(id)
     }
 
