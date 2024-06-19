@@ -54,12 +54,10 @@ class AccountFragment(
             dismiss()
         }
         binding.signOutLayout.setOnClickListener {
-            MaterialAlertDialogBuilder(requireContext())
-                .setMessage("Do you want to sign out?")
+            MaterialAlertDialogBuilder(requireContext()).setMessage("Do you want to sign out?")
                 .setNegativeButton("No") { dialog, which ->
                     // Respond to negative button press
-                }
-                .setPositiveButton("Yes") { dialog, which ->
+                }.setPositiveButton("Yes") { dialog, which ->
                     // Respond to positive button press
                     lifecycleScope.launch {
                         binding.progressBar.isIndeterminate = true
@@ -67,16 +65,14 @@ class AccountFragment(
                         binding.progressBar.isIndeterminate = false
                         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                             .requestIdToken(getString(R.string.default_web_client_id))
-                            .requestEmail()
-                            .build()
+                            .requestEmail().build()
                         googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
                         auth.signOut()
                         googleSignInClient.signOut()
                         onSuccess()
                         dismiss()
                     }
-                }
-                .show()
+                }.show()
         }
         binding.order.setOnClickListener {
             findNavController().navigate(R.id.orderPageFragment2)
@@ -95,15 +91,13 @@ class AccountFragment(
             } else {
                 binding.userNumberTv.text = user.phoneNumber
             }
-            val imageLoader = ImageLoader.Builder(requireContext())
-                .components {
-                    if (SDK_INT >= 28) {
-                        add(ImageDecoderDecoder.Factory())
-                    } else {
-                        add(GifDecoder.Factory())
-                    }
+            val imageLoader = ImageLoader.Builder(requireContext()).components {
+                if (SDK_INT >= 28) {
+                    add(ImageDecoderDecoder.Factory())
+                } else {
+                    add(GifDecoder.Factory())
                 }
-                .build()
+            }.build()
             binding.accountImg.load(
                 user.photoUrl,
                 imageLoader = imageLoader

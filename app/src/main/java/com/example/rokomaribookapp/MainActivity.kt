@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         navView = findViewById(R.id.bottom_navigation)
         // navView.setupWithNavController(navController)
         // findNavController(R.id.fragmentContainerView).navigate(R.id.homeFragment)
-        navView.setOnNavigationItemSelectedListener {
+        navView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.cartFragment -> {
                     val intent = Intent(this@MainActivity, CartActivity::class.java)
